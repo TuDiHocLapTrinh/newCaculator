@@ -1,116 +1,176 @@
 :root {
-    --primary-color: #ec1f55;
-    --text-color: #333;
-    --background-color-black: #17171C;
+  --primary-color: #ec1f55;
+  --text-color: #333;
+  --background-color-black: #17171c;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .calculator {
-    position: relative;
-    width: 375px;
-    height: 734px;
-    background-color: var(--background-color-black);
+  position: relative;
+  width: 375px;
+  height: 734px;
+  background-color: var(--background-color-black);
 }
 
 /* ---------------THEME_TOGGLE---------------- */
 
 .theme-toggle {
-    width: 72px;
-    height: 32px;
-    margin: 16px auto 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #2E2F38;
-    border-radius: 16px;
+  width: 72px;
+  height: 32px;
+  margin: 16px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2e2f38;
+  border-radius: 16px;
 }
 
 .theme-toggle svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .theme-toggle svg:hover {
-    opacity: 0.8;
-    cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .theme-toggle svg:first-child {
-    margin-right: 12px;
+  margin-right: 12px;
 }
 
 .theme-toggle .icon-sun {
-    color: yellow;
+  color: yellow;
 }
 
 .theme-toggle .icon-moon {
-    color: #f5f5f5;
+  color: #f5f5f5;
 }
 
 /* ---------------CONTENT---------------- */
 .content {
-    margin: 55px 20px 32px 20px;
-    height: 599px;
+  margin: 55px 20px 32px 20px;
+  height: 599px;
 }
 
 .display-calculating {
-    color: #FFFFFF;
-    font-weight: 300;
-    font-size: 40px;
-    line-height: 47px;
-    width: 335px;
-    height: 47px;
-    position: relative;
+  /* Numbers */
+
+  width: 335px;
+  height: 47px;
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 47px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  /* Dark / Text */
+
+  color: #ffffff;
+
+  opacity: 0.4;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .display-calculating span {
-    right: 0;
-    position: absolute;
+  right: 0;
+  position: absolute;
 }
 
 .display-result {
-    width: 335px;
-    height: 96px;
-    background-color: #ec1f55;
+  /* Numbers */
+
+  width: 335px;
+  height: 96px;
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 90px;
+  line-height: 90px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  /* Dark / Text */
+
+  color: #ffffff;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .display-operation {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 .display-operation .operation-row {
-    width: 335px;
-    height: 72px;
-    display: flex;
-    gap: 16px;
+  width: 335px;
+  height: 72px;
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .display-operation .btn {
-    width: 71.75px;
-    height: 72px;
-    background: #4E505F;
-    border-radius: 24px;
-    outline: none;
-    border-style: none;
+  width: 71.75px;
+  height: 72px;
+  background: #2e2f38;
+  border-radius: 24px;
+  outline: none;
+  border-style: none;
+  font-size: 32px;
+  font-family: sans-serif;
+  color: #ffffff;
 }
+
+.display-operation .group1 {
+  background: #4e505f;
+}
+
+.display-operation .group2 {
+  background: #4b5efc;
+}
+
+/* .display-operation .btn .group1 {
+  background-color: #d2d3da;
+} */
