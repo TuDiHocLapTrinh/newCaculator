@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 :root {
-<<<<<<< HEAD
   --primary-color: #ec1f55;
   --text-color: #333;
   --background-color-black: #17171c;
@@ -33,55 +31,11 @@ body {
   width: 375px;
   height: 734px;
   background-color: var(--background-color-black);
-=======
-    --primary-color: #ec1f55;
-    --text-color: #333;
-    --background-color-black: #17171C;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: inherit;
-}
-
-html {
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    background-color: #f5f5f5;
-}
-
-.app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.calculator {
-    position: relative;
-    width: 375px;
-    height: 734px;
-    background-color: var(--background-color-black);
-}
-
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
->>>>>>> 5b3f4e9baeb658db36fc19831fad0461d6f61dec
 }
 
 /* ---------------THEME_TOGGLE---------------- */
 
 .theme-toggle {
-<<<<<<< HEAD
   width: 72px;
   height: 32px;
   margin: 16px auto 0 auto;
@@ -112,82 +66,31 @@ body {
 
 .theme-toggle .icon-moon {
   color: #f5f5f5;
-=======
-    width: 72px;
-    height: 32px;
-    margin: 16px auto 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #2E2F38;
-    border-radius: 16px;
-}
-
-.theme-toggle svg {
-    width: 24px;
-    height: 24px;
-}
-
-.theme-toggle svg:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.theme-toggle svg:first-child {
-    margin-right: 12px;
-}
-
-.theme-toggle .icon-sun {
-    color: yellow;
-    animation: spin 5s infinite linear;
-}
-
-.theme-toggle .icon-moon {
-    color: #f5f5f5;
->>>>>>> 5b3f4e9baeb658db36fc19831fad0461d6f61dec
 }
 
 /* ---------------CONTENT---------------- */
 .content {
-<<<<<<< HEAD
   margin: 55px 20px 32px 20px;
   height: 599px;
 }
 
 .display-calculating {
   /* Numbers */
-
   width: 335px;
   height: 47px;
 
-  font-family: "Work Sans";
+  display: flex;
+  justify-content: flex-end;
+
+  opacity: 0.4;
+}
+
+.display-calculating span {
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
   line-height: 47px;
-  /* identical to box height */
-
-  display: flex;
-  align-items: center;
-  text-align: right;
-
-  /* Dark / Text */
-
   color: #ffffff;
-
-  opacity: 0.4;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-}
-
-.display-calculating span {
-  right: 0;
-  position: absolute;
 }
 
 .display-result {
@@ -196,27 +99,16 @@ body {
   width: 335px;
   height: 96px;
 
-  font-family: "Work Sans";
+  display: flex;
+  justify-content: flex-end;
+}
+
+.display-result span {
+  color: #ffffff;
   font-style: normal;
   font-weight: 300;
-  font-size: 90px;
-  line-height: 90px;
+  font-size: 70px;
   /* identical to box height, or 100% */
-
-  display: flex;
-  align-items: center;
-  text-align: right;
-
-  /* Dark / Text */
-
-  color: #ffffff;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
 }
 
 .display-operation {
@@ -239,67 +131,25 @@ body {
   outline: none;
   border-style: none;
   font-size: 32px;
-  font-family: sans-serif;
   color: #ffffff;
 }
 
-.display-operation .group1 {
+.display-operation .btn:hover {
+  opacity: 0.8;
+}
+
+.display-operation .btn:active {
+  background-color: #d4d1d1;
+}
+
+.display-operation .btn-group1 {
   background: #4e505f;
 }
 
-.display-operation .group2 {
+.display-operation .btn-group2 {
   background: #4b5efc;
 }
 
 /* .display-operation .btn .group1 {
   background-color: #d2d3da;
 } */
-=======
-    margin: 55px 20px 32px 20px;
-    height: 599px;
-}
-
-.display-calculating {
-    color: #FFFFFF;
-    font-weight: 300;
-    font-size: 40px;
-    line-height: 47px;
-    width: 335px;
-    height: 47px;
-    position: relative;
-}
-
-.display-calculating span {
-    right: 0;
-    position: absolute;
-}
-
-.display-result {
-    width: 335px;
-    height: 96px;
-    background-color: #ec1f55;
-}
-
-.display-operation {
-    margin-top: 16px;
-}
-
-.display-operation .operation-row {
-    width: 335px;
-    height: 72px;
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.display-operation .btn {
-    width: 71.75px;
-    height: 72px;
-    background: #4E505F;
-    border-radius: 24px;
-    outline: none;
-    border-style: none;
-}
->>>>>>> 5b3f4e9baeb658db36fc19831fad0461d6f61dec
-=======
->>>>>>> parent of 5b3f4e9 (css base)
