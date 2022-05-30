@@ -3,6 +3,7 @@ let resultDisplay = document.querySelector("#result-content");
 const btn = document.querySelectorAll(".btn");
 
 let nextToClear = false;
+let firstNumberWriteDone = false;
 let saveOperator;
 console.log(btn);
 
@@ -36,45 +37,98 @@ function buttonclick() {
           break;
         case "÷":
           saveOperator = "/";
+          operatorButtonClick(saveOperator);
+          break;
         case "x":
           saveOperator = "*";
+          operatorButtonClick(saveOperator);
+          break;
         case "-":
           saveOperator = "-";
+          operatorButtonClick(saveOperator);
+          break;
         case "+":
           saveOperator = "+";
-          if (this.operator == undefined) {
-            this.firstNumber = inputNumberDisplay.innerHTML;
-            this.operator = saveOperator;
-            nextToClear = true;
-            console.log(this.operator);
-            console.log(this.firstNumber);
+          operatorButtonClick(saveOperator);
+          break;
+        case "±":
+          if (inputNumberDisplay.innerHTML.includes("-") === false) {
+            inputNumberDisplay.innerHTML = "-" + inputNumberDisplay.innerHTML;
           } else {
-            this.secondNumber = inputNumberDisplay.innerHTML;
-            console.log(this.secondNumber);
-            this.result = eval(
-              this.firstNumber + this.operator + this.secondNumber
-            ).toPrecision(6);
-            resultDisplay.innerHTML = this.result;
+            inputNumberDisplay.innerHTML =
+              inputNumberDisplay.innerHTML.slice(1);
           }
+          break;
+        case "%":
+          inputNumberDisplay.innerHTML =
+            parseFloat(inputNumberDisplay.innerHTML) / 100;
           break;
         case "=":
-          //   if (oldIsOperatorButton) break;
-          //   oldIsOperatorButton = true;
-          //   inputDisplay.innerHTML += e.target.innerHTML;
+          if (firstNumberWriteDone == true) {
+            calculator.secondNumber = inputNumberDisplay.innerHTML;
+          } else {
+            return;
+          }
+          calculator.result =
+            calculator.firstNumber +
+            calculator.operator +
+            calculator.secondNumber;
+          resultDisplay.innerHTML = parseFloat(
+            eval(calculator.result).toPrecision(6)
+          );
+          resultDisplay.innerHTML = resultDisplay.innerHTML.substr(0, 11);
+          calculator.firstNumber = undefined;
+          calculator.operator = undefined;
+          calculator.secondNumber = undefined;
+          nextToClear = true;
+          break;
+        case "C":
+          backToInitialize();
           break;
         default:
-          // try {
-          //   inputNumberDisplay.innerHTML += e.target.innerHTML;
-          // } catch (error) {}
           if (nextToClear === true) {
             inputNumberDisplay.innerHTML = "";
+            nextToClear = false;
           }
-          inputNumberDisplay.innerHTML += e.target.innerHTML;
-
+          if (inputNumberDisplay.innerHTML.length < 9)
+            inputNumberDisplay.innerHTML += e.target.innerHTML;
           break;
       }
     });
   }
+}
+
+function operatorButtonClick(operator) {
+  if (firstNumberWriteDone === false) {
+    calculator.firstNumber = inputNumberDisplay.innerHTML;
+    calculator.operator = operator;
+    nextToClear = true;
+    console.log(calculator);
+    firstNumberWriteDone = true;
+  } else {
+    calculator.secondNumber = inputNumberDisplay.innerHTML;
+    calculator.result =
+      calculator.firstNumber + calculator.operator + calculator.secondNumber;
+    resultDisplay.innerHTML = parseFloat(
+      eval(calculator.result).toPrecision(6)
+    );
+    resultDisplay.innerHTML = resultDisplay.innerHTML.substr(0, 11);
+    calculator.firstNumber = calculator.result;
+    calculator.operator = operator;
+    calculator.secondNumber = undefined;
+    nextToClear = true;
+  }
+}
+
+function backToInitialize() {
+  calculator.firstNumber = "";
+  calculator.operator = "";
+  calculator.secondNumber = "";
+  calculator.result = "";
+  nextToClear = false;
+  firstNumberWriteDone = false;
+  inputNumberDisplay.innerHTML = "";
+  resultDisplay.innerHTML = "";
 }
 
 calculator.showToDisplay();

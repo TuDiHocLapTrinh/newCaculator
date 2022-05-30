@@ -106,7 +106,9 @@ body {
   color: #ffffff;
   font-style: normal;
   font-weight: 300;
-  font-size: 70px;
+  font-size: 50px;
+
+  align-self: flex-end;
   /* identical to box height, or 100% */
 }
 
