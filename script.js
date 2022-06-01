@@ -1,11 +1,11 @@
 let inputNumberDisplay = document.querySelector("#calculating-content");
 let resultDisplay = document.querySelector("#result-content");
 const btn = document.querySelectorAll(".btn");
+const btnOperation = document.querySelectorAll(".btn-operation")
 
 let nextToClear = false;
 let firstNumberWriteDone = false;
 let saveOperator;
-console.log(btn);
 
 const calculator = {
   firstNumber: "",
@@ -15,10 +15,24 @@ const calculator = {
   showToDisplay: buttonclick,
 };
 
+function onSelectBtnOperation(btn) {
+  for (const item of btnOperation) {
+    if (item.innerText === btn.innerText) {
+      btn.classList.add("active")
+    }else{
+      item.classList.remove("active");
+    }
+  }
+}
+
 function buttonclick() {
   for (let i = 0; i < btn.length; i++) {
     const element = btn[i];
     element.addEventListener("click", function (e) {
+      const buttonSelect = e.target;
+      // console.log(buttonSelect)
+      onSelectBtnOperation(buttonSelect)
+
       switch (e.target.innerHTML) {
         case "⌫":
           if (inputNumberDisplay.innerText.length > 1) {
@@ -36,6 +50,7 @@ function buttonclick() {
           }
           break;
         case "÷":
+         
           saveOperator = "/";
           operatorButtonClick(saveOperator);
           break;
